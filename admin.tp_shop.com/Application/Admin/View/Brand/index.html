@@ -1,0 +1,59 @@
+<extend name="Public:index"/>
+<block name="content">
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                {$title}
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">管理后台</a>
+                </li>
+                <li class="active"> {$title} </li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            品牌列表
+                            <span class="tools pull-right">
+                                <a href="{:U('add')}" class="btn btn-success btn-link">新增</a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+                            <div class="adv-table">
+                                <table  class="display table table-bordered table-striped" id="dynamic-table">
+                                    <thead>
+                                    <tr>
+                                        <th>品牌名称</th>
+                                        <th>LOGO</th>
+                                        <th>品牌描述</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <foreach name="rows" item="row">
+                                                <tr>
+                                                    <td>{$row.name}</td>
+                                                    <td>{$row.logo}</td>
+                                                    <td>{$row.intro}</td>
+                                                    <td class="center hidden-phone">
+                                                        <a href="{:U('edit',['id'=>$row['id']])}">编辑</a>
+                                                        |
+                                                        <a href="{:U('remove',['id'=>$row['id']])}">删除</a>
+                                                    </td>
+                                                </tr>
+                                        </foreach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+</block>

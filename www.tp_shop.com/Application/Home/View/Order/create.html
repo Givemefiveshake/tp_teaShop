@@ -1,0 +1,312 @@
+<extend name="Public:index"/>
+<block name="css">
+	<link href="__CSS__/settlement.css" rel="stylesheet" type="text/css">
+</block>
+
+<block name="center">
+	<!-- center -->
+	<div class="container center">
+		<form action="{:U(Order/create)}" method="post">
+		<div class="panel">
+			<p class="title">收货地址</p>
+				<ul class="addresses">
+					<volist name="addresses" id="address">
+						<li>
+							<p class="uname">{$address.name}</p>
+							<p class="pre_address">
+								{$address.province_name} {$address.city_name} {$address.area_name}
+							</p>
+							<p class="address" title="双击编辑" old="">{$address.detail_address}</p>
+							<p class="uphone" title="双击编辑">{$address.tel}</p>
+							<p class="actived">
+								<input type="radio" name="address_id" checked="checked" value="{$address.id}">
+								使用该地址
+							</p>
+						</li>
+					</volist>
+					<li class="add_address">
+						<p class="plus"><a href="{:U('Address/add')}">+</a></p>
+						使用新地址
+					</li>
+				</ul>
+
+			<table class="summation">
+				<thead>
+				<tr>
+					<td>商品信息</td>
+					<td>单价</td>
+					<td>数量</td>
+					<td>小计</td>
+				</tr>
+				</thead>
+				<tbody>
+					<volist name="goodsLists" id="goodsList">
+						<tr>
+							<td>
+								<img src="{$goodsList.logo}" />
+								<ul><li>{$goodsList.name}</li></ul>
+							</td>
+							<td>￥：{$goodsList.shop_price}</td>
+							<td>{$goodsList.amount}</td>
+							<td>￥：{$goodsList.sub_total}</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><p>运送方式：京东快递</p><p>运费险：0.00</p></td>
+							<td></td>
+							<td><p>0.00</p><p>0.00</p></td>
+						</tr>
+					</volist>
+				</tbody>
+				<tfoot>
+				<tr>
+					<td colspan="3"></td>
+					<td>合计：<span class="sum">￥{$total_price}</span></td>
+				</tr>
+				</tfoot>
+			</table>
+
+			<div class="bill">
+				<div class="payment">
+					<ul>
+						<li><input type="radio" name="payment_id" value="3">银联支付</input></li>
+						<li><input type="radio" name="payment_id" value="4">货到付款</input></li>
+					</ul>
+					<ul>
+						<li><input type="radio" name="payment_id" value="1" checked="checked">微信支付</input></li>
+						<li><input type="radio" name="payment_id" value="2">支付宝支付</input></li>
+					</ul>
+				</div>
+				<ul class="summary">
+					<li>实付款：<span class="sum"><input type="hidden" name="price" value="{$total_price}">￥{$total_price}</span></li>
+				</ul>
+				<p>
+					<button class="button_color_scheme_dark borderRadius_scheme_small" onclick="history.go(-1)">返回购物车</button>
+					<button class="button_color_scheme_dark borderRadius_scheme_small">提交订单</button>
+				</p>
+			</div>
+		</div>
+		</form>
+	</div>
+
+</block>
+
+<block name="js">
+	<script type="text/javascript" src="__JS__/jquery.cxselect.min.js"></script>
+	<script type="text/javascript" src="__JS__/jquery.editable.min.js"></script>
+	<script type="text/javascript">
+
+		$(".invoice .content .normal .details button, .invoice .content .digital .details button, .invoice .navigator button").addClass("button_color_scheme_light borderRadius_scheme_small");
+		$(".invoice .content .normal .confirmation button, .invoice .content .digital .confirmation button").addClass("button_color_scheme_mixed");
+		$(".invoice .content [type='text']").addClass("borderRadius_scheme_small");
+		$(".invoice .content .VAT .confirmation button").addClass("button_color_scheme_dark");
+		$(".invoice .content .confirmation button").addClass("borderRadius_scheme_small");
+
+		$(function(){
+
+			/* Address module START */
+
+			var $address_list = $(".center .addresses");
+
+			// Click to active.
+			var $actived_address = $address_list.find(".actived");
+			$actived_address.live({
+				click: function(){
+					$(this).find("[name='in_using']").attr({"checked":"checked"});
+					$is_checked = $address_list.find(".is_checked").clone();
+					$address_list.find(".is_checked").remove();
+					$(this).before($is_checked);
+				},
+				hover: function(){
+					$(this).css({"cursor":"pointer"});
+				}
+			});
+
+			// Add blank address and hide add trigger.
+			var $add_address = $address_list.find(".add_address");
+			$add_address.click(function(){
+				$newAddress = $('<li>'+
+						'<p class="uname">源码时代</p>'+
+						'<p class="pre_address"><select class="province" data-value="四川省"></select><select class="city" data-value="成都市"></select><select class="area" data-value="高新区"></select></p>'+
+						'<p class="address" title="双击编辑" old="">地址</p>'+
+						'<p class="uphone" title="双击编辑">电话</p>'+
+						'<p><button class="save button_color_scheme_dark">保存并使用该地址</button> <button class="cancel button_color_scheme_dark">取消</button></p>'+
+						'</li>');
+
+				// Select pre-address.
+				$newAddress.find('.pre_address').cxSelect({
+					url: 'json/cityData.min.json',
+					selects: ['province', 'city', 'area'],
+					emptyStyle: 'none'
+				});
+
+				// Enable directly editing.
+				$newAddress.find('.address').editable({
+					lineBreaks : true,
+					toggleFontSize : false,
+					closeOnEnter : true
+				});
+				$newAddress.find('.uphone').editable({
+					lineBreaks : true,
+					toggleFontSize : false,
+					closeOnEnter : true
+				});
+
+				// Add to list.
+				$newAddress.insertBefore($(this));
+
+				// Hide trigger.
+				$(this).css({"display":"none"});
+			}).hover(function(){
+				$(this).css({"cursor":"pointer"});
+			});
+
+			// Save and using new address.
+			$save_address = $address_list.find(".save");
+			$save_address.live("click", function(){
+				$(this).parent().parent().append(
+						'<p class="actived"><input type="radio" name="in_using" >使用该地址</p>'
+				);
+				// Show add trigger.
+				$add_address.css({"display":"initial"});
+				// Using address.
+				$(this).parent().parent().find(".actived").trigger("click");
+				// Clear.
+				$(this).parent().remove();
+			});
+
+			// Cancel using new address.
+			$cancel_address = $address_list.find(".cancel");
+			$cancel_address.live("click", function(){
+				$(this).parent().parent().remove();
+				$add_address.css({"display":"initial"});
+			});
+
+
+			// Select pre-address.
+			$pre_address = $address_list.find(".pre_address");
+			$pre_address.cxSelect({
+				url: 'json/cityData.min.json',
+				selects: ['province', 'city', 'area'],
+				emptyStyle: 'none'
+			});
+
+			// Directly edit address.
+			var editable_params = {
+				lineBreaks : true,
+				toggleFontSize : false,
+				closeOnEnter : true
+			}
+			$address = $address_list.find(".address");
+			$uphone = $address_list.find(".uphone");
+
+			var $editing;
+			$address.editable(editable_params);
+			$uphone.editable(editable_params);
+
+			// Listen on when elements getting edited
+			var editing_func = function() {
+				$editing = $(this);
+				$editing.attr({"old":$(this).find("textarea").val()});
+				$editing.find('textarea').css({"background-color":"white"});
+			}
+			$address.live('edit', editing_func);
+			$uphone.live('edit', editing_func);
+			$address.live('edit', function() {
+				$editing.find('textarea').attr({"maxlength":"44"});
+			});
+			$uphone.live('edit', function() {
+				$editing.find('textarea').attr({"maxlength":"11"});
+			});
+			// Listen on when elements cancel edited
+			$(document).keydown(function(event){
+				if(event.keyCode == 27){
+					$editing.editable('close');
+					$editing.text($editing.attr("old"));
+				}
+			});
+
+			/* Adress module END */
+
+			/* Invoice module START */
+
+			$(".invoice .content .title [type='radio']").click(function(){
+				if($(this).val() == "institution") {
+					$(this).parent().parent().find(".institution_address").removeAttr("disabled");
+				} else {
+					$(this).parent().parent().find(".institution_address").attr("disabled", "disabled");
+				}
+
+			});
+			$(".center .invoice_info .not_issuing_invoicing").click(function() {
+				if($(this).is(':checked')) {
+					$(this).siblings().css({"display":"none"});
+				} else {
+					$(this).siblings().css({"display":"initial"});
+				}
+			});
+
+			$(".center .invoice_info .subtitle2 .alter").click(function(){
+				$(".invoice").fadeIn(100);
+			}).hover(function(){
+				$(this).css({"cursor":"pointer"});
+			});
+
+			$(".invoice .close_window").click(function(){
+				$(".invoice").fadeOut(100);
+			}).hover(function(){
+				$(this).css({"cursor":"pointer"});
+			});
+
+			/* Invoice navigator START */
+
+			$(".invoice .navigator >*").click(function(){
+				$(".invoice .navigator >.actived").removeClass("actived");
+				$(this).addClass("actived");
+				$(".invoice .content >.actived").removeClass("actived");
+				$(".invoice .content >*").eq($(this).index()).addClass("actived");
+			});
+
+			/* Invoice navigator END */
+
+			$(".invoice .content .normal button, .invoice .content .digital button").click(function(){
+				$(this).siblings("*").removeClass("actived");
+				$(this).addClass("actived");
+			})
+
+			var step = 1;
+			$(".invoice .content .VAT .prev").click(function(){
+				step--;
+				updateVATStepsUI();
+			});
+			$(".invoice .content .VAT .next").click(function(){
+				step++;
+				updateVATStepsUI();
+			});
+
+			var $vat = $(".invoice .content .VAT");
+			function updateVATStepsUI(){
+				if (step > 1){
+					$vat.find(".option-innerHTML").text($vat.find("[type='radio'][name='option']:checked").attr("text"));
+					$vat.find(".option").addClass("actived");
+				} else {
+					$vat.find(".option").removeClass("actived");
+				}
+				$vat.find(".diagram >*, .invoice .content .VAT .steps >*").removeClass("actived");
+				$vat.find(".diagram >:lt(" + step + ")").addClass("actived");
+				$vat.find(".diagram >:lt(" + step + ") hr").addClass("actived");
+				$vat.find(".steps >:nth-child(" + step + ")").addClass("actived");
+			}
+
+			$(".invoice .content .submit").click(function(){
+				$(".invoice").fadeOut(100);
+			});
+
+			// Initial invoice
+			$(".invoice .navigator :first-child").trigger("click");
+			/* Invoice module END */
+
+		});
+	</script>
+</block>
+	

@@ -1,0 +1,80 @@
+.header .top_menu .is_login,
+.header .top_menu .not_login,
+.header .top_menu .search_bar,
+.header .menu{
+  display:none;
+}
+
+.center{
+  width: 900px;
+}
+.center .title{
+  font-size: 20px;
+  text-align: left;
+  padding: 34px 0px 14px 1.8em;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.center ul{
+  line-height: 84px;
+  padding: 30px 200px 80px 200px;
+  font-size: 18px;
+}
+.center input{
+  width: 333px;
+  height: 30px;
+}
+.center .submit{
+  width: 337px;
+  height: 38px;
+  font-size: 18px;
+}
+.center .uphone{
+  width: 233px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.center .verification_code{
+  width: 100px;
+  height: 34px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.center .verification_wrapper{
+  background-image: url(../img/register/popup_bg.png);
+  width: 166px;
+  height: 85px;
+  padding: 34px 40px;
+  position: absolute;
+  top: -30px;
+  right: 90px;
+  display: none;
+}
+.center .verification_wrapper >*{
+  line-height: 32px;
+  font-size: 14px;
+}
+.center .verification_wrapper .title{
+  height: 28px;
+  padding: 0;
+  text-align: center;
+  border: none;
+}
+.center .verification_wrapper .verification{
+  width: 94px;
+  height: 20px;
+  margin-right: 10px;
+}
+.center .verification_wrapper .picture{
+  max-width: 50px;
+  max-height: 15px;
+}
+.center .verification_wrapper .confirmation{
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.center .verification_wrapper button{
+  width: 75px;
+  height: 22px;
+  font-size: inherit;
+}

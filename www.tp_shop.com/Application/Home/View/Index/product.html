@@ -1,0 +1,168 @@
+<extend name="Public:index"/>
+<block name="center">
+	<div class="container center">
+		<div class="panel">
+			<p class="uposition">你的当前位置：<a href="index.html">首页</a><span class="spliter">></span><a href="index.html#new_product">新品上市</a><span class="spliter">></span><a href="">{$goods.name}</a></p>
+			<div class="description">
+				<p class="title" style="padding-right: 450px">{$goods.name}</p>
+				<p class="subtitle">{$goods.name}</p>
+
+				<form action="{:U('Cart/addCart')}" method="post">
+					<dl>
+						<dt>价格</dt>
+						<dd class="price">￥{$goods.market_price}</dd>
+						<dt>促销价</dt>
+						<dd class="promotional_price">￥{$goods.shop_price}</dd>
+						<dt>月销量</dt>
+						<dd class="sales">106</dd>
+						<dt>累计评价</dt>
+						<dd class="comment">3461</dd>
+						<dt>运费</dt>
+						<dd class="freight">福建武夷山市至<select><option>成都</option></select></span> 快递：0.00</dd>
+						<dt>服务</dt>
+						<dd class="deliver">由京东发货，并提供售后服务。</dd>
+						<dt>数量</dt>
+						<dd class="amount"><button class="decrease">-</button>
+							<input type="text" name="amount" value="1"/>
+							<button class="increase">+</button>
+						</dd>
+						<dt>库存</dt>
+						<dd class="inventory">{$goods.stock}件</dd>
+						<input type="hidden" name="goods_id" value="{$goods.id}" />
+						<dd class="options">
+							<button onclick="javascript:window.location.href='settlement.html'">
+								<img src="__IMG__/ljgm.png"> 立即购买
+							</button>
+							<button type="submit">
+								<img src="__IMG__/sygw.png"> 加入购物车
+							</button>
+						</dd>
+					</dl>
+				</form>
+			</div>
+			<div class="sample">
+				<div class='lightSlider-content'>
+					<ul>
+						<volist name="galleries" id="gallery">
+							<li data-thumb="{$gallery.path}">
+								<img src="{$gallery.path}">
+							</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+			<div class="details">
+				<p class="title"><span class="tab actived">商品详情</span><a href="#comment"><span class="tab">累计评价<span class="amount">2453</span></span></a></p>
+				<dl>
+					<dt>商品参数</dt>
+					<dd class="data">
+						<ul>
+							<li>生产许可证编号：QS3502 1401 1887</li>
+							<li>保质期：720 天</li>
+							<li>省份: 福建省</li>
+							<li>茶种类: {$goodsCategory.name}</li>
+						</ul>
+						<ul>
+							<li>产品标准号：{$goods.sn}</li>
+							<li>产品名称：森舟 大红袍一斤装</li>
+							<li>系列: 大红袍一斤装</li>
+							<li>净含量: 500g</li>
+						</ul>
+						<ul>
+							<li>储藏方法：避光、防潮、防异味</li>
+							<li>生长季节: 春季</li>
+							<li>城市: 武夷山市</li>
+						</ul>
+					</dd>
+					<dt>商品详情</dt>
+					<dd class="picture">
+						{$detail.content}
+					</dd>
+					<dt id="comment">商品评论</dt>
+					<dd class="present">
+						<blockquote>
+							<span></span><br />
+							好评度
+						</blockquote>
+						<ul>
+							<li>好评：
+								<div class="progress_bar">
+									<div class="progress good"></div>
+								</div>
+							</li>
+							<li>中评：
+								<div class="progress_bar">
+									<div class="progress normal"></div>
+								</div>
+							</li>
+							<li>差评：
+								<div class="progress_bar">
+									<div class="progress bad"></div>
+								</div>
+							</li>
+						</ul>
+						<p><input type="radio" name="filter" checked="checked" >全部<input type="radio" name="filter">追评（621）<input type="radio" name="filter">图片（121）</p>
+					</dd>
+					<dd class="comment">
+						<div class="uname"><img class="placeholder" src="__IMG__/placeholder_1x1.png" />125*****46(匿名)</div>
+						<p class="text">价格实惠 老顾客了。茶叶不错，香气扑鼻，汤色诱人，这款已经买过几次，性价比不错。送礼没有问题的 包装的也好。 服务态度太好了，好的事无巨细</p>
+						<p class="time">2016/10/06  09:42</p>
+					</dd>
+					<dd class="comment">
+						<div class="uname"><img class="placeholder" src="__IMG__/placeholder_1x1.png" />尔*****因(匿名)</div>
+						<p class="text">这是我第三次购买大红袍了，看看吧，质量优，价格更优惠，非常完美，性价比高，值得拥有，好评加五星，祝商家财源滚滚，生意兴隆！</p>
+						<img src="__IMG__/product/spxq-plt1.jpg" />
+						<img src="__IMG__/product/spxq-plt2.jpg" />
+						<img src="__IMG__/product/spxq-plt3.jpg" />
+						<p class="time">2016/10/01  15:08</p>
+					</dd>
+					<dd class="comment">
+						<div class="uname"><img class="placeholder" src="__IMG__/placeholder_1x1.png" />西*****梦(匿名)</div>
+						<p class="text">又是回购了，茶叶味好，价格公道，！喝完再来！</p>
+						<img src="__IMG__/product/spxq-plt1.jpg" />
+						<img src="__IMG__/product/spxq-plt2.jpg" />
+						<p class="time">2016/09/24  11:26</p>
+					</dd>
+					<dd class="comment">
+						<div class="uname"><img class="placeholder" src="__IMG__/placeholder_1x1.png" />128*****78(匿名)</div>
+						<p class="text">之前都是喝这款大红袍的，味道挺好的，价格也比较实惠。味道浓郁，茶汤清亮，是上等的好茶。</p>
+						<p class="time">2016/10/06  09:42</p>
+					</dd>
+					<dt>发表评论</dt>
+					<dd class="my-comment">
+						<p class="radioGroup">评级：<input type="radio" name="rate" >好评<input type="radio" name="rate" >中评<input type="radio" name="rate" >差评</p>
+						<textarea class="inputComment" maxlength="256"></textarea>
+						<button class="submit button_color_scheme_dark">提交</button>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</block>
+
+<block name="css">
+	<link href="__CSS__/product.css" rel="stylesheet" type="text/css">
+	<link href="__CSS__/lightslider.css" rel="stylesheet" type="text/css">
+</block>
+
+<block name="js">
+	<script type="text/javascript" src="__JS__/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="__JS__/jquery.auto-complete.min.js"></script>
+	<script type="text/javascript" src="__JS__/lightslider.js"></script>
+	<script type="text/javascript" src="__JS__/basic.js"></script>
+	<script type="text/javascript">
+		$(".center .description .amount button").addClass("button_color_scheme_dark");
+		$(".center .description .options button").addClass("button_color_scheme_dark borderRadius_scheme_small");
+
+		$(function(){
+			$(".center .sample .lightSlider-content >ul").lightSlider({
+				item: 1,
+				loop: true,
+				gallery:true,
+				thumbItem: 4,
+				galleryMargin: 15,
+				thumbMargin: 15
+			});
+		});
+	</script>
+</block>

@@ -1,0 +1,115 @@
+<extend name="Public:index" />
+<!-- page heading start-->
+<block name="content">
+<div class="page-heading">
+    <h3>
+        管理首页
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">管理后台</a>
+        </li>
+        <li> 菜单管理 </li>
+        <li class="active"> 编辑菜单</li>
+    </ul>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<section class="wrapper">
+    <!-- page start-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    编辑菜单
+                </header>
+                <div class="panel-body">
+                    <form role="form" action="{:U('edit')}" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">菜单名称</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="name" value="{$info.name}" placeholder="请输入名字">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">菜单URL</label>
+                            <input type="text" class="form-control" id="exampleInputEmail2" name="path" value="{$info.path}" placeholder="请输URL">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">所属父级菜单</label>
+                            <select class="form-control" name="parent_id">
+                                <option value="0" <if condition="$info['id'] eq 0">selected="selected"</if>>一级分类</option>
+                                <volist name="menu" id="c">
+                                    <option value="{$c.id}" <if condition="$info['parent_id'] eq $c['id']">selected="selected"</if> >{:str_repeat('&emsp;',($c['level']-1)*2)}{$c.name}</option>
+                                </volist>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">分类简介</label>
+                            <textarea name="intro" class="form-control">{$info.intro}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>关联权限</label>
+                            <div id='permission-ids'></div>
+                            <ul id='treeDemo' class="ztree"></ul>
+                        </div>
+                        <input type="hidden" name="id" value="{$info.id}" />
+                        <button type="submit" class="btn btn-primary">提交修改</button>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+</block>
+<block name='css'>
+    <link rel="stylesheet" href="__ZTREE__/css/zTreeStyle/zTreeStyle.css" type="text/css">
+</block>
+<block name='js'>
+    <script type="text/javascript" src="__ZTREE__/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="__ZTREE__/js/jquery.ztree.excheck.js"></script>
+    <script type='text/javascript'>
+        $(function () {
+            $('#parent-id').val({$row.parent_id});
+
+        var setting = {
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    pIdKey: "parent_id",
+                }
+            },
+            callback: {
+                onCheck: function () {
+                    //获取所有被勾选的节点
+                    var nodes = ztreeObj.getCheckedNodes(true);
+                    var permissions_node = $('#permission-ids');
+                    permissions_node.empty();
+                    $(nodes).each(function (i, v) {
+                        var id = v.id;
+                        var html = '<input type="hidden" name="permission_id[]" value="' + id + '"/>';
+                        $(html).appendTo(permissions_node);
+                    });
+                },
+            },
+        };
+        var zNodes = {$permissions};
+        var ztreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        //展开所有节点.
+        ztreeObj.expandAll(true);
+
+        //获取所有被关联的权限
+        var permission_ids = {$info.permission_ids};
+        //找到每一个节点对象,然后再选中
+        $(permission_ids).each(function (i, v) {
+            var node = ztreeObj.getNodeByParam('id', v);
+            ztreeObj.checkNode(node,true,false,true);
+        });
+
+        });
+    </script>
+</block>

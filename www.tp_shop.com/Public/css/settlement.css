@@ -1,0 +1,331 @@
+.header .top_menu .at_login, .header .top_menu .not_login{ visibility: hidden;}
+.header .top_menu .cart, .header .menu{display: none;}
+
+.center .title{
+  text-align: left;
+  padding: 15px 30px;
+}
+.center .addresses li{
+  float: left;
+  width: 260px;
+  height: 150px;
+  padding: 15px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  color: #515050;
+  background-color: #f1f0f0;
+  text-align: left;
+}
+.center .addresses li >*{
+  padding-left: .5em;
+  font-size: 12px;
+}
+.center .addresses .uname{
+  font-size: 14px;
+  padding-bottom: 2px;
+  margin-bottom: 10px;
+  border-bottom: solid #490202 1px;
+}
+.center .addresses .pre_address select{
+  width: 65px;
+}
+.center .addresses textarea{
+  resize: none;
+}
+.center .addresses .address{
+  height: 35px;
+  margin-top: 5px;
+  overflow: hidden;
+  line-height: 16px;
+}
+.center .addresses .address textarea{
+  width: 100%!important;;
+  height: 100%!important;;
+}
+.center .addresses .uphone textarea{
+  width: 90px!important;;
+}
+.center .addresses .actived,
+.center .addresses .save{
+  width: 125px;
+  margin: 10px 0px;
+  font-size: 13.3px;
+  font-weight: bold;
+}
+.center .addresses .is_default{
+  float: right;
+  font-size: 12px;
+}
+.center .addresses .is_checked{
+  float: right;
+}
+.center .addresses li:last-child{
+  text-align: center;
+}
+.center .addresses li:last-child .plus{
+  font-size: 50px;
+  padding: 0px;
+  padding-top: 20px;
+}
+
+.center .summation{
+  width: 100%;
+  padding: 0px 30px 30px 30px; 
+  margin-top: 200px;
+  line-height: 30px;
+  border-collapse: separate;
+  border-spacing: 0px 0px;
+}
+.center .summation thead{
+  font-size: 18px;
+  height: 50px;
+}
+.center .summation tbody tr:nth-child(odd){
+  height: 138px;
+}
+.center .summation tbody tr:nth-child(even){
+  height: 76px;
+}
+.center .summation tfoot tr{
+  height: 65px;
+}
+
+.center .summation tbody tr:first-child td{
+  border-top-style: solid;
+}
+.center .summation tbody td:first-child,
+.center .summation tfoot td:first-child{
+  border-left-style: solid;
+}
+.center .summation tbody td:last-child,
+.center .summation tfoot td:last-child{
+  border-right-style: solid;
+}
+.center .summation tfoot td{
+  border-bottom-style: solid;
+}
+
+.center .summation tbody td:nth-child(1){
+  width: 495px;
+  text-align: left;
+  text-indent: 1em;
+}
+.center .summation tbody td:nth-child(1) img{
+  float: left;
+  width: 110px;
+  height: 110px;
+  margin: 0px 50px;
+}
+.center .summation tbody td:nth-child(2){
+  width: 260px;
+}
+.center .summation tbody td:nth-child(3){
+  width: 170px;
+}
+.center .summation tbody td:nth-child(4){
+  width: 170px;
+}
+.center .summation tbody tr:nth-child(odd) :nth-child(4){
+  color: #a0603d;
+}
+
+.center .summation tfoot .sum{
+  font-size: 18px;
+  color: #a0603d;
+}
+
+.center .title2, .center .invoice_info{
+  text-align: left;
+  line-height: 28px;
+  padding: 0px 60px;
+}
+.center .title2{
+  font-size: 16px;
+}
+.center .invoice_info {
+  text-indent: 2em;
+  border-bottom-style: solid;
+}
+.center .invoice_info .alter{
+  display: none;
+}
+
+.center .bill{
+  text-align: right;
+  direction: rtl;
+}
+.center .bill .payment{
+  width: 230px;
+  padding: 20px 50px;
+  direction: ltr;
+}
+.center .bill .payment ul{
+  text-align: left;
+}
+.center .bill .payment ul:first-child{
+  float: right;
+}
+.center .bill .summary{
+  width: 460px;
+  line-height: 40px;
+  padding: 20px 32px 30px 42px; 
+  border-style: solid;
+}
+.center .bill .summary span{
+  color: #757575
+}
+.center .bill .summary .sum{
+  font-size: 18px;
+  color: #a0603d;
+}
+.center .bill:last-child button{
+  width: 110px;
+  height: 30px;
+  margin: 27px 10px 72px 10px;
+}
+
+.invoice{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0,0,0,.7);
+  display: none;
+}
+.invoice .table-inter-layer{
+  width: 535px;
+  height: 525px;
+  margin: auto;
+  background-color: #fff;
+}
+.invoice .title_bar{
+  justify-content: space-between;
+  height: 35px;
+  background-color: #ededed;
+}
+.invoice .title_bar >*{
+  padding: 6px 15px;
+  font-size: 16px;
+}
+.invoice .close_window{
+  color: #959595;
+}
+.invoice .navigator{
+  width: 450px;
+  padding: 20px 0 10px 0;
+  margin: auto;
+  justify-content: space-between;
+}
+.invoice .navigator button{
+  width: 130px;
+  height: 34px;
+}
+.invoice .navigator .actived{
+ 	box-shadow: 0px 0px 0px 2px #a0603d;
+}
+.invoice .option{
+  height: 30px;
+  display: none;
+}
+.invoice .content{
+  width: 450px;
+  padding: 10px 0;
+  margin: auto;
+  position: relative;
+}
+.invoice .content >*,
+.invoice .steps >*{
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  display: none;
+}
+.invoice .content .actived,
+.invoice .steps .actived{
+  display: block;
+}
+.invoice .content dl >*{
+  padding: 10px 0;
+}
+.invoice .content dt{
+  float: left;
+  width: 70px;
+  height: 60px;
+}
+.invoice .content .title >*{
+  margin-bottom: 9px;
+}
+.invoice .content .title [type='text']{
+  width: 278px;
+  height: 26px;
+  margin-left: 40px;
+}
+.invoice .content .details {
+  width: 370px;
+  justify-content: space-between;
+}
+.invoice .content .details >*{
+  width: 66px;
+  height: 28px;
+  margin-top: -5px;
+  font-size: 12px;
+}
+.invoice .confirmation button{
+  width: 60px;
+  height: 30px;
+  margin-right: 20px;
+}
+.invoice .details .actived{
+  box-shadow: 0 0 0 2px #9d613c;
+}
+
+.invoice .content .VAT .diagram{
+  justify-content: space-between;
+}
+.invoice .content .VAT .diagram >*{
+  position: relative;
+  padding: 10px 12px;
+  font-size: 12px;
+  border: dashed 1px;
+}
+.invoice .content .VAT .diagram .actived{
+  border-color: #9f613c;
+}
+.invoice .content .VAT .diagram >* hr{
+  position: absolute;
+  right: -41px;
+  top: 12px;
+  width: 41px;
+  border: dashed 1px;
+}
+
+.invoice .content .VAT li{
+  padding: 7px 0;
+}
+.invoice .content .VAT .label{
+  float: left;
+  width: 100px;
+  padding: 7px 0;
+  font-size: 12px;
+  text-align: right;
+}
+.invoice .content .VAT .step1{
+  padding: 20px 0;
+}
+.invoice .content .VAT .step1 .label{
+  padding-top: 1px;
+}
+.invoice .content .VAT .label .not-null{
+  color: #a0603c;
+}
+.invoice .content .VAT [type='text']{
+  width: 200px;
+  height: 25px;
+}
+.invoice .content .VAT .confirmation button{
+  width: 60px;
+  height: 30px;
+}

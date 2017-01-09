@@ -1,0 +1,118 @@
+<extend name="Public:index" />
+<!-- page heading start-->
+<block name="content">
+<div class="page-heading">
+    <h3>
+        管理首页
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">管理后台</a>
+        </li>
+        <li> 管理员管理 </li>
+        <li class="active"> 修改管理员信息</li>
+    </ul>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<section class="wrapper">
+    <!-- page start-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    修改管理员信息
+                </header>
+                <div class="panel-body">
+                    <form role="form" action="{:U('edit')}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="{$rows.id}">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">用户名</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="username" value="{$rows.username}" placeholder="请输入名字">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">邮箱</label>
+                            <input type="text" class="form-control" id="exampleInputEmail2" name="email" value="{$rows.email}" placeholder="请输入名字">
+                        </div>
+                        <div class="form-group">
+                            <label>关联角色</label>
+                            <div id="role_ids">
+                            </div>
+                            <ul id="treeDemo" class="ztree"></ul>
+                        </div>
+                        <button type="submit" class="btn btn-primary">确认修改</button>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+</block>
+<block name="css">
+    <link rel="stylesheet" href="__ZTREE__/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <style type="text/css" rel="stylesheet">
+        ul.ztree{
+            margin-top: 10px;
+            border: 1px solid #617775;
+            background: #f0f6e4;
+            width: 220px;
+            overflow-y: scroll;
+            overflow-x: auto;
+        }
+    </style>
+</block>
+<block name="js">
+    <script type="text/javascript" src="__ZTREE__/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="__ZTREE__/js/jquery.ztree.excheck.js"></script>
+    <script type='text/javascript'>
+        var setting = {
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    pIdKey: "parent_id",
+                }
+            },
+            callback: {
+                onCheck: function (event, property_id, node) {
+                    //由于角色没有层级关系,所以可以直接将当前节点找到即可
+//                    console.debug(arguments)
+//                    //获取当前点击的节点id
+//                    var id = node.id;
+//                    //判断是否是勾选状态
+//                    if(node.checked){
+//                        var html = '<input type="hidden" name="role_id[]" value="' + id + '"/>';
+//                        $(html).appendTo($('#role_ids'));
+//                    }else{
+//                        //找到隐藏域中对应的节点
+//                        var t = $('#role_ids').find('input[value='+id+']')
+//                        console.debug(t)
+//                    }
+//                    //放入隐藏域
+                    var nodes = ztreeObj.getCheckedNodes(true);
+                    var parent_node = $('#role_ids');
+                    parent_node.empty();
+                    $(nodes).each(function (i, v) {
+                        var html = '<input type="hidden" name="role_id[]" value="' + v.id + '"/>';
+                        $(html).appendTo(parent_node);
+                    });
+                },
+            },
+        };
+        var zNodes = {$roles};
+        var ztreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        //展开所有节点.
+        ztreeObj.expandAll(true);
+
+        var role_ids = {$rows.role_ids};
+        $(role_ids).each(function(i,v){
+            var node = ztreeObj.getNodeByParam('id',v);
+            ztreeObj.checkNode(node,true,false,true)
+        });
+    </script>
+</block>

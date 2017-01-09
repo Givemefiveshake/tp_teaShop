@@ -1,0 +1,4 @@
+[ 2017-01-06T18:02:27+08:00 ] 127.0.0.1 /Order/create.html
+ERR: 1048:Column 'name' cannot be null
+ [ SQL语句 ] : INSERT INTO `order` (`user_id`,`name`,`province_name`,`city_name`,`area_name`,`detail_address`,`tel`,`price`,`payment_id`,`payment_name`,`create_time`) VALUES ('2',NULL,'江苏省','淮安市','淮阴区','达瓦大无大无大多','14232322211','55550.00','3','银联支付','1483696947')
+

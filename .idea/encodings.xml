@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/admin.tp_shop.com/Application/Admin/Controller/BrandController.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin.tp_shop.com/Application/Admin/Model/BrandModel.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin.tp_shop.com/Public/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin.tp_shop.com/Public/ext" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin.tp_shop.com/Public/fonts" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin.tp_shop.com/Public/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin.tp_shop.com/Public/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/www.tp_shop.com/Public/ext/layer" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/www.tp_shop.com/Public/js/jquery-1.10.2.min.js" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

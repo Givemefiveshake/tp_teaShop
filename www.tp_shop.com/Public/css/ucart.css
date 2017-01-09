@@ -1,0 +1,94 @@
+.header .top_menu .at_login, .header .top_menu .not_login{ visibility: hidden;}
+.header .top_menu .cart, .header .menu{ display: none; }
+
+.center .title{
+  text-align: left;
+  padding: 15px 30px;
+}
+.center .cargo{
+  width: 100%;
+  padding: 0px 30px 30px 30px; 
+  margin-top: -20px;
+  border-collapse: separate;
+  border-spacing: 0px 30px;
+}
+.center .cargo thead{
+  color: #5b5b5b;
+}
+.center .cargo thead td:first-child{
+  text-align: left;
+  padding-left: 13px;
+}
+.center .cargo thead td:first-child input{
+  vertical-align: middle;
+}
+.center .cargo tbody tr{
+  height: 192px;
+}
+.center .cargo tbody td{
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+.center .cargo tbody td:nth-child(1){
+  width: 42px;
+  padding-top: 10px;
+  vertical-align: top;
+  border-left-style: solid;
+}
+.center .cargo tbody td:nth-child(2){
+  width: 175px;
+}
+.center .cargo tbody td:nth-child(2) img{
+  width: 137px;
+  height: 137px;
+}
+.center .cargo tbody td:nth-child(3){
+  width: 290px;
+  text-align: left;
+  text-indent: 1em;
+  line-height: 30px;
+}
+.center .cargo tbody td:nth-child(4){
+  width: 175px;
+}
+.center .cargo tbody td:nth-child(5){
+  width: 140px;
+}
+.center .cargo tbody td:nth-child(5) [type='text']{
+  width: 40px;
+  height: 29px;
+  border-radius: 0px;
+  border-color: #a0603d;
+  text-align: center;
+  text-indent: 0px;
+}
+.center .cargo tbody td:nth-child(5) button{
+  width: 24px;
+  height: 33px;
+  border-radius: 0px;
+}
+.center .cargo tbody td:nth-child(6){
+  width: 170px;
+  color: #a0603d;
+}
+.center .cargo tbody td:nth-child(7){
+  border-right-style: solid;
+  font-size: 40px;
+  color: #959595;
+}
+.center .cargo tfoot td:first-child{
+  text-align: left;
+  padding-left: 13px;
+}
+.center .cargo tfoot .count{
+  font-size: 16px;
+  color: #490102;
+}
+.center .cargo tfoot .sum{
+  font-size: 16px;
+  color: #490102;
+}
+.center .cargo tfoot .sum+* button{
+  width: 106px;
+  height: 34px;
+}

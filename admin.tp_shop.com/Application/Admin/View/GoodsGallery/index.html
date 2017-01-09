@@ -1,0 +1,92 @@
+<extend name="Public:index" />
+<!-- page heading start-->
+<block name="content">
+<div class="page-heading">
+    <h3>
+        管理首页
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">管理后台</a>
+        </li>
+        <li> 商品相册管理 </li>
+        <li class="active"> 商品相册</li>
+    </ul>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<section class="wrapper">
+    <!-- page start-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    商品相册
+                </header>
+                已有图片
+
+                    <volist name="urls" id="url">
+                        <img src="{$url.path}" width="100px" height="100px">
+                        <a href="{:U('delete', array('id' => $url['id']))}" class="btn btn-danger btn-xs deleteBtn">删除</a>
+                    </volist>
+
+                <hr>
+                新增图片
+                <div id="img_list">
+                </div>
+                <hr>
+                <div class="panel-body">
+                    <form role="form" action="{:U('add')}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="goods_id" value="{$id}">
+                        <div class="form-group">
+                            <input type="file" id="logo-upload">
+                            <!--<input type="hidden" name="logo[]" id="logo"/>-->
+                            <div id="file_list">
+                                </div>
+                            <img src="" id="logo-preview" style="max-width: 100px;max-height: 100px"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">提交新增</button>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+</block>
+
+<block name="js">
+    <script src="__UPLOADIFY__/jquery.uploadify.min.js"></script>
+    <script src="__LAYER__/layer.js"></script>
+    <script type='text/javascript'>
+        $(function () {
+            //初始化一个uploadify控件
+            $("#logo-upload").uploadify({
+                height: 30,
+                swf: '__UPLOADIFY__/uploadify.swf',
+                uploader: '{:U("Upload/upload")}',
+                width: 120,
+                buttonText:'选择文件',
+                fileTypeExts:'*.jpg;*.jpeg;*.jpe;*.png;*.gif',
+
+                onUploadSuccess:function(file,data){
+                    //将响应字符串转换为json对象
+                    data = $.parseJSON(data);
+                    if(data.status){
+                        //成功了
+//                        $('#logo').val(data.url);
+//                        $('#logo-preview').attr('src',data.url);
+//                        layer.alert(data.msg, {icon: 6});
+                        $('#img_list').append('<img src="'+data.url+'" width="100px" height="100px">');
+                        $('#file_list').append('<input type="hidden" name="path[]" value="'+data.url+'"/>');
+//                        <input type="hidden" name="logo[]" id="logo"/>
+                    }else{
+                        layer.alert(data.msg, {icon: 5});
+                    }
+                }
+            });
+        });
+    </script>
+</block>

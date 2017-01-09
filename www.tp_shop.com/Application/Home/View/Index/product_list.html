@@ -1,0 +1,79 @@
+<extend name="Public:index" />
+<block name="center">
+	<div class="container center">
+		<div class="panel">
+
+			<p class="uposition">你的当前位置：<a href="">全部结果</a><span class="spliter">></span><a href="">“{$categoryName.name}”</a></p>
+			<table class="filter">
+				<tr>
+					<td>品牌：</td>
+					<td>
+						<ul class="brand">
+							<volist name="brands" id="brand">
+								<li><a href="">{$brand.name}</a></li>
+							</volist>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>价格段：</td>
+					<td>
+						<ul class="prices">
+							<li><a href="javascript: void(0)">1-59元</a></li>
+							<li><a href="javascript: void(0)">60-199元</a></li>
+							<li><a href="javascript: void(0)">200-399元</a></li>
+							<li><a href="javascript: void(0)">400-599元</a></li>
+							<li><a href="javascript: void(0)">600-799元</a></li>
+							<li><a href="javascript: void(0)">800元以上</a></li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+			<p class="counting">
+				共<span>{:count($goods)}</span>件商品　<span>1/100</span>　<button><</button><button>></button>
+			</p>
+			<p class="sorting">
+				<button>综合排序</button><button>销量</button><button>人气</button><button>信用</button><button>价格</button>
+			</p>
+			<p class="distribution">
+				配送至
+				<select>
+					<option>四川省高新区</option>
+				</select>
+				<input type="checkbox">京东配送</input>
+				<input type="checkbox">货到付款</input>
+				<input type="checkbox">仅显示有货</input>
+			</p>
+			<div class="products">
+				<div class="flex-list-box">
+					<dl class="products-list">
+						<volist name="goods" id="good">
+							<a href="{:U('Index/product',['id'=>$good['id']])}">
+								<dd>
+									<p><img src="{$good.logo}"></p>
+									<p class="paid">库存:{$good.stock}</p>
+									<p class="price">¥：{$good.shop_price}</p>
+									<p>{$good.name}</p>
+								</dd>
+							</a>
+						</volist>
+					</dl>
+				</div>
+			</div>
+			<div class="buttons_at_bottom">
+				{$pages}
+			</div>
+		</div>
+	</div>
+</block>
+<block name="css">
+	<link href="__CSS__/product_list.css" rel="stylesheet" type="text/css">
+	<link href="__CSS__/page.css" rel="stylesheet" type="text/css">
+</block>
+<block name="js">
+	<script type="text/javascript" src="__JS__/basic.js"></script>
+	<script type="text/javascript">
+		$(".center .sorting button").addClass("button_color_scheme_mixed");
+		$(".center .counting button").addClass("button_color_scheme_light");
+	</script>
+</block>

@@ -1,0 +1,241 @@
+.header .top_menu .is_login{ display: none; }
+.header .top_menu .at_login{ visibility: hidden; }
+
+.center .description{
+  float: right;
+  text-align: left;
+  line-height: 35px;
+}
+.center .description .title{
+  font-size: 24px;
+}
+.center .description .subtitle{
+  font-size: 18px;
+  color: #a0603d;
+}
+.center .description dl{
+  border-top: solid 1px #490102;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.center .description dt{
+  float: left;
+  color: #a3a3a3;
+  margin-right: 2em;
+}
+.center .description .price{
+  text-decoration:line-through;
+}
+.center .description .promotional_price{
+  font-size: 24px;
+}
+.center .description .promotional_price,
+.center .description .sales,
+.center .description .comment{
+  color: #a0603d;
+}
+.center .description .sales{
+  float: left;
+  margin-right: 4em;
+}
+.center .description button{
+  width: 48px;
+  height: 33px;
+}
+.center .description [type='text']{
+  width: 60px;
+  height: 29px;
+  border: solid 1px #9f603d;
+  text-align: center;
+  text-indent: 0px;
+}
+.center .description .deliver{
+  margin-bottom: 35px;
+}
+.center .description .amount{
+  float: left;
+  margin-right: 1em;
+}
+.center .description .amount+dt{
+  color: #000000;
+  margin-right: .5em;
+}
+.center .description .options{
+  padding-top: 50px;
+  text-indent: 3em;
+}
+.center .description .options button{
+  width: 148px;
+  height: 33px;
+  margin: 0px 1em;
+  border-radius: 4px;
+}
+.center .description .options img{
+  vertical-align: middle;
+}
+
+.center .sample{
+  width: 420px;
+  height: 510px;
+}
+/*-x- override lightslider style START -x-*/
+.center .sample .lSSlideWrapper{
+  overflow: visible;
+}
+.center .sample .lSGallery{
+  width: 370px!important;;
+  padding-left: 50px!important;;
+}
+.center .sample .lSGallery li{
+  width: 69px!important;;
+}
+.center .sample .lSAction a{
+  top: 463px;
+  transform: scaleY(2.2);
+}
+/*x-x override lightslider style END x-x*/
+
+.center .details{
+  text-align: left;
+}
+.center .details .title{
+  padding: 10px 0px;
+  margin-top: 20px;
+}
+.center .details .title .tab{
+  padding: 10px 25px 10px 25px;
+  margin: 0px -40px 0px 45px;
+  background-color: #fff;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.center .details .title .actived{
+  box-shadow: -1px 0 0 #9f603d, 1px 0 0 #9f603d, 0 -1px 0 #9f603d, 0 1px 0 #fff; 
+}
+.center .details .title .amount{
+  font-size: 16px;
+  padding: 5px;
+  color: #9f603d;
+}
+.center .details dl{
+  border-top-style: solid;
+  padding: 15px 25px
+}
+.center .details dt{
+  font-size: 18px;
+  padding: 12px 36px;
+  margin: 25px 0px 40px 0px;
+  border-bottom-style: solid;
+}
+.center .details .data ul{
+  float: left;
+  width: 33.33%;
+  height: 170px;
+  line-height: 35px;
+}
+.center .details .data ul li{
+  text-indent: 3em;
+}
+.center .details .picture{
+  line-height: 0px;
+}
+.center .details .comment{
+  padding: 0px 40px;
+  padding-right: 400px;
+  border-top: solid 1px #e7d7ce;
+  position: relative;
+}
+.center .details .comment .uname{
+  position: absolute;
+  right: 0px;
+  width: 150px;
+  height: 100%;
+  font-size: 10px;
+  text-align: left;
+}
+.center .details .comment .uname .placeholder{
+  width: 0px;
+  height: 100%;
+  padding: 0px;
+  vertical-align: middle;
+}
+.center .details .comment img{
+  max-width: inherit;
+  padding: 0px 16px;
+}
+.center .details .comment .text{
+  font-size: 12px;
+  line-height: 30px;
+  padding: 20px 0px;
+}
+.center .details .comment .time{
+  font-size: 10px;
+  padding: 10px 0px;
+  color: #717171;
+}
+.center .details .present blockquote{
+  width: 120px;
+  height: 80px;
+  text-align: center;
+  float: left;
+}
+.center .details .present blockquote span{
+  font-size: 36px;
+  color: #fc2b2f;
+}
+.center .details .present blockquote span:after{
+  content:"98%"
+}
+.center .details .present ul{
+  line-height: 28px;
+}
+.center .details .present .progress_bar{
+  width: 200px;
+  height: 12px;
+  background-color: #e0dada;
+  display: inline-block;
+  position: relative;
+}
+.center .details .present .progress{
+  position: absolute;
+  height: inherit;
+  background-color: #fc2b2f;
+}
+.center .details .present .good{
+  width: 98%;
+}
+.center .details .present .normal{
+  width: 2%;
+}
+.center .details .present .bad{
+  width: 0%;
+}
+.center .details .present p{
+  padding: 15px 0px;
+}
+.center .details .present [type='radio']{
+  margin-left: 35px;
+}
+.center .details .my-comment{
+  height: 220px;
+  padding: 30px 50px;
+  background-color: #e0dada;
+}
+.center .details .my-comment >*{
+  margin: 5px 0;
+}
+.center .details .my-comment .inputComment{
+	width: 1044px;
+  height: 120px;
+  resize: none;
+}
+.center .details .my-comment .radioGroup{
+   font-size: 16px;
+}
+.center .details .my-comment [type='radio']{
+  margin-left: 40px;
+}
+.center .details .my-comment .submit {
+  width: 95px;
+  height: 35px;
+}

@@ -1,0 +1,100 @@
+<extend name="Public:index"/>
+<block name="center">
+	<div class="container center">
+		<div class="panel">
+
+			<!-- banner START -->
+			<div class="banner">
+				<ul>
+					<li><a href="product.html"><img src="__IMG__/index/banner1.png" /></a></li>
+					<li><a href="product.html"><img src="__IMG__/index/banner2.png" /></a></li>
+					<li><a href="product.html"><img src="__IMG__/index/banner3.png" /></a></li>
+					<li><a href="product.html"><img src="__IMG__/index/banner4.png" /></a></li>
+				</ul>
+			</div>
+			<!-- banner END -->
+			<!-- "新品上市" START -->
+			<div class="new_product">
+				<p class="title"><img src="__IMG__/index/sfbt1.png"></p>
+				<div class="flex-list-box">
+					<dl class="products-list">
+						<volist name="goods" id="good" offset="0" length="4">
+							<a href="{:U('Index/product',['id'=>$good['id']])}">
+								<dd>
+									<p><img src="{$good.logo}"></p>
+									<p class="paid">库存:{$good.stock}</p>
+									<p class="price">¥：{$good.shop_price}</p>
+									<p>{$good.name}</p>
+								</dd>
+							</a>
+						</volist>
+					</dl>
+				</div>
+			</div>
+			<!-- "新品上市" END -->
+			<!-- "所有商品" START -->
+			<div class="all_product">
+				<p class="title"><img src="__IMG__/index/sfbt2.png"></p>
+				<div class="flex-list-box">
+					<dl class="products-list">
+						<volist name="goods" id="good" offset="0" length="12">
+							<a href="{:U('Index/product',['id'=>$good['id']])}">
+								<dd>
+									<p><img src="{$good.logo}"></p>
+									<p class="paid">库存:{$good.stock}</p>
+									<p class="price">¥：{$good.shop_price}</p>
+									<p>{$good.name}</p>
+								</dd>
+							</a>
+						</volist>
+					</dl>
+				</div>
+			</div>
+			<!-- "所有商品" END -->
+			<!-- "get小技能" START -->
+			<div class="tcommon">
+				<p class="title"><img src="__IMG__/index/sybt3.png"></p>
+				<div class="flex-list-box">
+					<dl class="products-list">
+						<volist name="articleCategories" id="articleCategory" offset="0" length="4">
+							<dd>
+								<p class="title2">{$articleCategory.category_name}</p>
+								<volist name="articles" id="article">
+									<if condition="$articleCategory['category_id'] eq $article['article_category_id']">
+										<ul>
+											<a href="{:U('Index/article',['id'=>$article['id']])}">
+												<li>{$article.name}</li>
+											</a>
+										</ul>
+									</if>
+								</volist>
+							</dd>
+						</volist>
+					</dl>
+				</div>
+			</div>
+			<!-- "get小技能" END -->
+			<!-- "多快好省" START -->
+			<div class="VFGC">
+				<p class="title"></p>
+				<div class="flex-list-box">
+					<dl>
+						<dd>
+							<img src="__IMG__/index/syfw1.png">
+						</dd>
+						<dd>
+							<img src="__IMG__/index/syfw2.png">
+						</dd>
+						<dd>
+							<img src="__IMG__/index/syfw3.png">
+						</dd>
+						<dd>
+							<img src="__IMG__/index/syfw4.png">
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<!-- "多快好省" END -->
+		</div>
+	</div>
+</block>

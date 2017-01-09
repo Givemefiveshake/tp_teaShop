@@ -1,0 +1,13 @@
+[ 2017-01-04T16:17:34+08:00 ] 127.0.0.1 /Cart/addCart.html
+ERR: 参数错误或者未定义:goods_id
+
+[ 2017-01-04T16:37:08+08:00 ] 127.0.0.1 /Cart/addCart.html
+ERR: 参数错误或者未定义:goods_id
+
+[ 2017-01-04T20:07:10+08:00 ] 127.0.0.1 /User/index.html
+ERR: 非法操作:index
+
+[ 2017-01-04T20:17:37+08:00 ] 127.0.0.1 /Cart/index.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND `is_on_sale` = 1 AND `status` = 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `goods` WHERE `id` IN () AND `is_on_sale` = 1 AND `status` = 1 
+

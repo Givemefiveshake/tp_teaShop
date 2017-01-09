@@ -1,0 +1,20 @@
+<extend name="Public:index"/>
+<block name="center">
+	<!-- center -->
+	<div class="container center">
+		<div class="panel">
+
+			<p class="uposition">你的当前位置：<a href="index.html">首页</a><span class="spliter">></span><a href="index.html#tcommon">{$articleDetail.name}</a><span class="spliter">></span><a href="">正文</a></p>
+			<!-- "正文" START -->
+			<div>
+				<p class="title">{$articleDetail.name}</p>
+				{$detail.content}
+			</div>
+			<!-- "正文" END -->
+			<p class="next"><a href="">下一篇：<span class="next_title">茶的故乡是中国？</span></a></p>
+		</div>
+	</div>
+</block>
+<block name="css">
+	<link href="css/tcommon.css" rel="stylesheet" type="text/css">
+</block>

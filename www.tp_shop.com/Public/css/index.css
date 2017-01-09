@@ -1,0 +1,56 @@
+.header .is_login, .at_login{
+	visibility: hidden;
+}
+
+.center .banner ul{
+	height: 698px;
+}
+.center .banner+.unslider-nav{
+	position: relative;
+	top: -25px;
+	z-index: 10;
+	-webkit-filter: brightness(.22);
+	-moz-filter: brightness(.22);
+	-ms-filter: brightness(.22);
+	-o-filter: brightness(.22);
+	filter: brightness(.22);
+}
+
+.center .title{
+	padding: 45px 0px;
+}
+
+.tcommon ._nx4{
+	height: 190px;
+	padding-left: 16px;
+}
+.tcommon ._nx4 dt{
+	width: 250px;
+	margin: 0px 21px;
+}
+
+.tcommon .title2{
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 3px;
+	padding-bottom: 20px;
+	background: url(../img/syxh.png) no-repeat 0px 30px;
+}
+.tcommon li{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	list-style: inside url(../img/sysj.png);
+}
+.VFGC{
+	padding-bottom: 50px;
+}
+.VFGC ._nx4{
+	height: 104px;
+	margin-left: -30px;
+	margin-right: -30px;
+}
+.VFGC ._nx4 dt{
+	width: 245px;
+	margin: 0px 35px;
+}

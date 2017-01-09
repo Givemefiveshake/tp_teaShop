@@ -1,0 +1,55 @@
+[ 2017-01-02T11:36:11+08:00 ] 127.0.0.1 /Goods/add.html
+ERR: 1062:Duplicate entry '1' for key 'PRIMARY'
+ [ SQL语句 ] : INSERT INTO `goods_detail` (`goods_id`,`content`) VALUES ('1','<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>')
+
+[ 2017-01-02T11:38:32+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:39:03+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:39:13+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:39:22+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:40:22+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:40:29+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:40:31+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:41:21+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T11:41:36+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T13:59:06+08:00 ] 127.0.0.1 /Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T14:00:51+08:00 ] 127.0.0.1 /Goods/edit/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T14:20:01+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T14:21:09+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T14:23:08+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T14:24:08+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T14:24:23+08:00 ] 127.0.0.1 /GoodsGallery/index/id/
+ERR: 参数错误或者未定义:id
+
+[ 2017-01-02T16:30:37+08:00 ] 127.0.0.1 /Goods/edit/id/
+ERR: 参数错误或者未定义:id
+

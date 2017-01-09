@@ -1,0 +1,35 @@
+.header .top_menu .is_login,
+.header .top_menu .not_login,
+.header .top_menu .search_bar,
+.header .menu{
+  display:none;
+}
+
+.center{
+  width: 900px;
+}
+.center .title{
+  font-size: 20px;
+  text-align: left;
+  padding: 34px 0px 14px 1.8em;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.center ul{
+  line-height: 84px;
+   padding: 30px 200px 80px 200px;
+  font-size: 18px;
+}
+.center input{
+  width: 333px;
+  height: 30px;
+}
+.center .submit{
+  width: 337px;
+  height: 38px;
+  font-size: 18px;
+}
+.center ul li:last-child{
+  text-align: right;
+  font-size: 14px;
+}
